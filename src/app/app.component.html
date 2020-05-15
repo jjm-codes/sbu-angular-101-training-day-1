@@ -1,0 +1,47 @@
+<!-- sample header section -->
+<header class="contact-section">
+  {{title}} |
+  <a routerLink="about">About Us</a> | <a routerLink="contact">Contact Us</a>
+  <!-- routerLink used to navigate -->
+</header>
+<br>
+<br>
+<!-- class binding -->
+<!-- single class at a time -->
+<h1 [class.colored-text]="isClicked">{{title}}</h1>
+<!-- multiple at a time -->
+<h1 [ngClass]="{
+  'colored-text': isClicked, 
+  'enlarge-text': !isClicked
+}">{{title}}</h1>
+
+<!-- inline style binding -->
+<!-- single inline style at a time  -->
+<h1 [style.color]="isClicked ? 'red' : 'blue'">{{title}}</h1>
+<!-- multiple inline style at a time  -->
+<h1 [ngStyle]="{
+    'color': isClicked ? 'red' : 'blue', 
+    'font-size': !isClicked ? '40px' : '20px'
+  }">{{title}}</h1>
+<button (click)="clickMe()">Click Me!</button>
+<!-- router-outlet is where the component are loaded based on route -->
+<hr>
+<br>
+<h3>Component is loaded below</h3>
+<!-- thing to note is that even though the route is changed the upper section and the below section does not change -->
+<router-outlet></router-outlet>
+<br>
+<hr>
+<br>
+<br>
+<!-- two way binding example, thing to notice here is that
+  everywhere title is used the value is changed when the input field changes -->
+<input type="text" [(ngModel)]="title">
+<h4>{{title}}</h4>
+<br>
+<br>
+<br>
+<!-- sample footer section -->
+<footer class="contact-section">
+  Hello I am a footer
+</footer>
